@@ -1,0 +1,16 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.userosscache
+*.sln.docstates
+
+# Local development settings
+*.local.json
+
+# IDE and operating system files
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store

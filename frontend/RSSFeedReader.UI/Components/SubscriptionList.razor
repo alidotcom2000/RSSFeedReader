@@ -1,0 +1,18 @@
+@if (Subscriptions.Count == 0)
+{
+    <p class="text-muted">No subscriptions yet. Add a feed URL to get started.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var subscription in Subscriptions)
+        {
+            <li class="list-group-item">@subscription</li>
+        }
+    </ul>
+}
+
+@code {
+    [Parameter]
+    public IReadOnlyList<string> Subscriptions { get; set; } = [];
+}

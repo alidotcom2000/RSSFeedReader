@@ -1,0 +1,54 @@
+﻿@page "/"
+@inject SubscriptionClient SubscriptionClient
+
+<PageTitle>Subscriptions</PageTitle>
+
+<h1>RSS subscriptions</h1>
+<p class="lead">Add the feeds you want to keep in your reading list.</p>
+
+<SubscriptionForm UrlSubmitted="AddSubscriptionAsync" />
+
+<h2 class="mt-4">Your subscriptions</h2>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+	<div class="alert alert-danger" role="alert">@errorMessage</div>
+}
+
+<SubscriptionList Subscriptions="subscriptions" />
+
+@code {
+	private IReadOnlyList<string> subscriptions = [];
+	private string? errorMessage;
+
+	protected override async Task OnInitializedAsync()
+	{
+		await LoadSubscriptionsAsync();
+	}
+
+	private async Task AddSubscriptionAsync(string url)
+	{
+		try
+		{
+			await SubscriptionClient.AddSubscriptionAsync(url);
+			await LoadSubscriptionsAsync();
+		}
+		catch (HttpRequestException)
+		{
+			errorMessage = "The subscription could not be added. Check that the API is running.";
+		}
+	}
+
+	private async Task LoadSubscriptionsAsync()
+	{
+		try
+		{
+			subscriptions = await SubscriptionClient.GetSubscriptionsAsync();
+			errorMessage = null;
+		}
+		catch (HttpRequestException)
+		{
+			errorMessage = "The subscription list could not be loaded. Check that the API is running.";
+		}
+	}
+}

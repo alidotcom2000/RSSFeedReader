@@ -1,0 +1,37 @@
+<EditForm Model="@model" OnSubmit="HandleSubmit" class="subscription-form">
+    <div class="input-group">
+        <InputText @bind-Value="model.Url" class="form-control" placeholder="https://example.com/feed.xml" aria-label="Feed URL" />
+        <button class="btn btn-primary" type="submit">Add subscription</button>
+    </div>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="text-danger mt-2" role="alert">@errorMessage</div>
+    }
+</EditForm>
+
+@code {
+    [Parameter]
+    public EventCallback<string> UrlSubmitted { get; set; }
+
+    private FormModel model = new();
+    private string? errorMessage;
+
+    private async Task HandleSubmit(EditContext _)
+    {
+        var url = model.Url.Trim();
+        if (string.IsNullOrWhiteSpace(url))
+        {
+            errorMessage = "Enter a feed URL before adding a subscription.";
+            return;
+        }
+
+        errorMessage = null;
+        await UrlSubmitted.InvokeAsync(url);
+        model = new FormModel();
+    }
+
+    private sealed class FormModel
+    {
+        public string Url { get; set; } = string.Empty;
+    }
+}

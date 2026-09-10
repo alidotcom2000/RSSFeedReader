@@ -16,9 +16,9 @@
 
 **Purpose**: Initialize the backend/frontend project structure and local configuration needed for the MVP.
 
-- [ ] T001 Create backend and frontend project structure under backend/RSSFeedReader.Api/ and frontend/RSSFeedReader.UI/
-- [ ] T002 Initialize the .NET solution and reference the backend API and Blazor WebAssembly frontend projects
-- [ ] T003 [P] Configure startup ports and local run settings in backend/RSSFeedReader.Api/Properties/launchSettings.json and frontend/RSSFeedReader.UI/Properties/launchSettings.json
+- [X] T001 Create backend and frontend project structure under backend/RSSFeedReader.Api/ and frontend/RSSFeedReader.UI/
+- [X] T002 Initialize the .NET solution and reference the backend API and Blazor WebAssembly frontend projects
+- [X] T003 [P] Configure startup ports and local run settings in backend/RSSFeedReader.Api/Properties/launchSettings.json and frontend/RSSFeedReader.UI/Properties/launchSettings.json
 
 ---
 
@@ -28,12 +28,12 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T004 Configure the backend API startup pipeline in backend/RSSFeedReader.Api/Program.cs
-- [ ] T005 [P] Configure frontend bootstrapping and API base URL in frontend/RSSFeedReader.UI/Program.cs and frontend/RSSFeedReader.UI/wwwroot/appsettings.json
-- [ ] T006 [P] Configure CORS and allowed frontend origins in backend/RSSFeedReader.Api/Program.cs
-- [ ] T007 Create the Subscription model in backend/RSSFeedReader.Api/Models/Subscription.cs with the required fields: `id`, `url`, and `createdAt`
-- [ ] T008 Create the in-memory subscription service in backend/RSSFeedReader.Api/Services/SubscriptionService.cs for add/list behavior
-- [ ] T009 Add validation rules for empty or whitespace-only values and preserve existing subscriptions when new entries are added in backend/RSSFeedReader.Api/Services/SubscriptionService.cs
+- [X] T004 Configure the backend API startup pipeline in backend/RSSFeedReader.Api/Program.cs
+- [X] T005 [P] Configure frontend bootstrapping and API base URL in frontend/RSSFeedReader.UI/Program.cs and frontend/RSSFeedReader.UI/wwwroot/appsettings.json
+- [X] T006 [P] Configure CORS and allowed frontend origins in backend/RSSFeedReader.Api/Program.cs
+- [X] T007 Create the Subscription model in backend/RSSFeedReader.Api/Models/Subscription.cs with the required fields: `id`, `url`, and `createdAt`
+- [X] T008 Create the in-memory subscription service in backend/RSSFeedReader.Api/Services/SubscriptionService.cs for add/list behavior
+- [X] T009 Add validation rules for empty or whitespace-only values and preserve existing subscriptions when new entries are added in backend/RSSFeedReader.Api/Services/SubscriptionService.cs
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel.
 
@@ -47,13 +47,13 @@
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Add the GET and POST subscription endpoints in backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs
-- [ ] T011 [P] [US1] Create the subscription form component in frontend/RSSFeedReader.UI/Components/SubscriptionForm.razor
-- [ ] T012 [P] [US1] Create the subscription list display component in frontend/RSSFeedReader.UI/Components/SubscriptionList.razor
-- [ ] T013 [US1] Implement the submit flow and immediate list refresh in frontend/RSSFeedReader.UI/Pages/Subscriptions.razor
-- [ ] T014 [US1] Add the frontend API client for fetching and posting subscriptions in frontend/RSSFeedReader.UI/Services/SubscriptionClient.cs
-- [ ] T015 [US1] Verify route and startup health by removing template demo conflicts and confirming the chosen MVP page is the only root route in frontend/RSSFeedReader.UI/Pages/
-- [ ] T016 [US1] Run the manual smoke validation for the add-subscription flow from quickstart.md and confirm it matches the MVP acceptance criteria
+- [X] T010 [P] [US1] Add the GET and POST subscription endpoints in backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs
+- [X] T011 [P] [US1] Create the subscription form component in frontend/RSSFeedReader.UI/Components/SubscriptionForm.razor
+- [X] T012 [P] [US1] Create the subscription list display component in frontend/RSSFeedReader.UI/Components/SubscriptionList.razor
+- [X] T013 [US1] Implement the submit flow and immediate list refresh in frontend/RSSFeedReader.UI/Pages/Home.razor
+- [X] T014 [US1] Add the frontend API client for fetching and posting subscriptions in frontend/RSSFeedReader.UI/Services/SubscriptionClient.cs
+- [X] T015 [US1] Verify route and startup health by removing template demo conflicts and confirming the chosen MVP page is the only root route in frontend/RSSFeedReader.UI/Pages/
+- [X] T016 [US1] Run the manual smoke validation for the add-subscription flow from quickstart.md and confirm it matches the MVP acceptance criteria
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently.
 
